@@ -1,0 +1,166 @@
+<div class="tabs">
+  <div class="tab_item tab_products1" id="tab_products"><%= link_to("PRODUCTS", "/") %></div>
+
+  <div class="tab_item tab_about1" id="tab_about"><%= link_to("ABOUT ME", "/about") %></div>
+
+  <div class="tab_item tab_contact1" id="tab_contact"><%= link_to("CONTACT", "/contact") %></div>
+</div>
+
+<div id="hide-wrapper"></div>
+<div class="products-main products-wrapper">
+  <div class="products-container">
+    <div class="product-unit">
+      <div class="product" id="portfolio">
+        <div class="product-img">
+          <img src="/products-img/portfolio-img.png">
+        </div>
+        <div class="product-text">
+          <p class="product-title">Portfolio</p>
+          <p class="product-day">2019.03.24</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="product-unit">
+      <div class="product" id="mkidea">
+        <div class="product-img">
+          <img src="/products-img/mkidea-img.png">
+        </div>
+        <div class="product-text">
+          <p class="product-title">mkidea</p>
+          <p class="product-day">2018.10.31</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="product-unit">
+      <div class="product" id="booklist">
+        <div class="product-img">
+          <img src="/products-img/BookList-img.png">
+        </div>
+        <div class="product-text">
+          <p class="product-title">BookList</p>
+          <p class="product-day">2018.10.04</p>
+        </div>
+      </div>
+    </div>
+    <div class="product-unit">
+      <div class="product" id="linestamp">
+        <div class="product-img">
+          <img src="/products-img/linestamp-img.png">
+        </div>
+        <div class="product-text">
+          <p class="product-title">LINE STAMP</p>
+          <p class="product-day">2016.12.19 ~ </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="hide-unit" id="hide-portfolio">
+  <div class="hibe-img">
+    <img src="/products-img/portfolio-img.png">
+  </div>
+  <div class="hide-explain">
+    <div class="close" id="close-portfolio">
+      <i class="fas fa-times"></i>
+    </div>
+    <p class="product-title hide-title">Portfolio</p>
+    <p class="product-day hide-day">2019.03.24</p>
+    <p class="flame-work">framework: Rails</p>
+    <p class="comment">My portfolio site that you are looking at now! You can find out my profile. Feel free contact me if you are interested in me!</p>
+    <a class="visit-website">▷ You are already here!</a>
+  </div>
+</div>
+<div class="hide-unit" id="hide-mkidea">
+  <div class="hibe-img">
+    <img src="/products-img/mkidea-img.png">
+  </div>
+  <div class="hide-explain">
+    <div class="close" id="close-mkidea">
+      <i class="fas fa-times"></i>
+    </div>
+    <p class="product-title hide-title">mkidea</p>
+    <p class="product-day hide-day">2018.10.31</p>
+    <p class="flame-work">framework: Rails</p>
+    <p class="comment">My second product! You can make many ideas with this app! I'm going to make this site a platform to make ideas.</p>
+    <a href="https://mkidea.jp" target="_blank" class="visit-website">▷ Visit WebSite</a>
+  </div>
+</div>
+<div class="hide-unit" id="hide-booklist">
+  <div class="hibe-img">
+    <img src="/products-img/BookList-img.png">
+  </div>
+  <div class="hide-explain">
+    <div class="close" id="close-booklist">
+      <i class="fas fa-times"></i>
+    </div>
+    <p class="product-title hide-title">BookList</p>
+    <p class="product-day hide-day">2018.10.04</p>
+    <p class="flame-work">framework: Rails</p>
+    <p class="comment">My first product! You can share several books in the form of List on your Twitter.</p>
+    <a href="https://book-list.jp" target="_blank" class="visit-website">▷ Visit WebSite</a>
+  </div>
+</div>
+<div class="hide-unit" id="hide-linestamp">
+  <div class="hibe-img">
+    <img src="/products-img/linestamp-img.png">
+  </div>
+  <div class="hide-explain">
+    <div class="close" id="close-linestamp">
+      <i class="fas fa-times"></i>
+    </div>
+    <p class="product-title hide-title">LINE STAMP</p>
+    <p class="product-day hide-day">2016.12.19 ~ </p>
+    <p class="comment">My original characters! You can buy them at LINE STORE!</p>
+    <a href="https://store.line.me/stickershop/author/119727" target="_blank" class="visit-website">▷ Visit WebSite</a>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $('#portfolio').click(function() {
+    $('#hide-portfolio').css('display', 'block');
+    $('#hide-portfolio').css('z-index', '20');
+    $('#hide-wrapper').css('display', 'block');
+  });
+  $('#mkidea').click(function() {
+    $('#hide-mkidea').css('display', 'block');
+    $('#hide-mkidea').css('z-index', '20');
+    $('#hide-wrapper').css('display', 'block');
+  });
+  $('#booklist').click(function() {
+    $('#hide-booklist').css('display', 'block');
+    $('#hide-booklist').css('z-index', '20');
+    $('#hide-wrapper').css('display', 'block');
+  });
+  $('#linestamp').click(function() {
+    $('#hide-linestamp').css('display', 'block');
+    $('#hide-linestamp').css('z-index', '20');
+    $('#hide-wrapper').css('display', 'block');
+  });
+
+  $('#hide-wrapper').click(function() {
+    $('#hide-portfolio').css('display', 'none');
+    $('#hide-mkidea').css('display', 'none');
+    $('#hide-booklist').css('display', 'none');
+    $('#hide-linestamp').css('display', 'none');
+    $('#hide-wrapper').css('display', 'none');
+  });
+  $('#close-portfolio').click(function() {
+    $('#hide-portfolio').css('display', 'none');
+    $('#hide-wrapper').css('display', 'none');
+  });
+  $('#close-mkidea').click(function() {
+    $('#hide-mkidea').css('display', 'none');
+    $('#hide-wrapper').css('display', 'none');
+  });
+  $('#close-booklist').click(function() {
+    $('#hide-booklist').css('display', 'none');
+    $('#hide-wrapper').css('display', 'none');
+  });
+  $('#close-linestamp').click(function() {
+    $('#hide-linestamp').css('display', 'none');
+    $('#hide-wrapper').css('display', 'none');
+  });
+</script>

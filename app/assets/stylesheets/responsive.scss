@@ -1,0 +1,44 @@
+/* for tablet ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+@media (max-width: 1024px) {
+  .product-unit {
+    width: 50%;
+  }
+  
+  .hide-unit {
+    width: 600px;
+    height: 300px;
+  }
+  .hide-unit img {
+    width: 296px;
+    height: 296px;
+    float: left;
+  }
+  .hide-explain {
+    width: 296px;
+    height: 296px;
+  }
+}
+
+/* for smart-phone ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+@media (max-width: 670px) {
+  .product-unit {
+    width: 100%;
+  }
+  
+  .hide-unit {
+    width: 300px;
+    height: 600px;
+  }
+  .hide-unit img {
+    width: 296px;
+    height: 296px;
+    border-bottom: solid 1px #d9d9d9;
+  }
+  .hide-explain {
+    width: 296px;
+    height: 296px;
+  }
+  .close {
+    top: 304px;
+  }
+}
