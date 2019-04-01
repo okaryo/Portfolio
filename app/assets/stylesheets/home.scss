@@ -275,15 +275,21 @@ header {
   color: rgba(128, 128, 128, 0.75);
   cursor: pointer;
 }
+.close:hover {
+  color: #8DD9D5;
+}
 
 /* footer ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 footer {
   height: 64px;
-  background-color: #040404;
-  color: #FFFFFF;
+  background-color: #3EBB44;
   text-align: center;
   width: 100%;
   
   position: absolute;
   bottom: 0;
+}
+footer p {
+  margin: auto;
+  color: #FFFFFF;
 }
