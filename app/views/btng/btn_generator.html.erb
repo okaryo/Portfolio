@@ -1,0 +1,102 @@
+<div class="container">
+  <div class="btn-unit">
+    <input class="btn" id="btn" type="submit" value="BTN">
+  </div>
+
+  <div class="sliders">
+    <div class="slider-container">
+      <%# <div class="slider-unit">
+        <p></p>
+        <input type="range" id="" min="0" max="120" step="1" value="20">
+        <span id="">20</span>
+      </div> %>
+      <table>
+        <tr>
+          <td width="25%">height:</td>
+          <td width="50%"><input type="range" id="height" min="0" max="120" step="1" value="20"></td>
+          <td width="15%"><span id="height-value">20</span></td>
+        </tr>
+        <tr>
+          <td width="25%">width:</td>
+          <td width="50%"><input type="range" id="width" min="0" max="240" step="1" value="40"></td>
+          <td width="15%"><span id="width-value">40</span></td>
+        </tr>
+        <tr>
+          <td width="25%">border-radius:</td>
+          <td width="50%"><input type="range" id="radius" min="0" max="60" step="1" value="2"></td>
+          <td width="15%"><span id="radius-value">2</span></td>
+        </tr>
+        <tr>
+          <td width="25%">border:</td>
+          <td width="50%"><input type="range" id="border" min="0" max="20" step="1" value="1"></td>
+          <td width="15%"><span id="border-value">1</span></td>
+        </tr>
+        <tr>
+          <td width="25%">font-size:</td>
+          <td width="50%"><input type="range" id="font-size" min="0" max="100" step="1" value="11"></td>
+          <td width="15%"><span id="font-size-value">11</span></td>
+        </tr>
+        <%# <tr>
+          <td width="25%"></td>
+          <td width="50%"><input type="range" id="" min="0" max="240" step="1" value=""></td>
+          <td width="15%"><span id=""></span></td>
+        </tr> %>
+      </table>
+      <p>※スマートフォンからの閲覧ではスライダーがうまく表示されません</p>
+      <p>※ボタンの色を変えたり、CSSのコードをコピペできるようにしたいです(いつかします)</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  var btn = document.getElementById('btn');
+  var heightElem = document.getElementById('height');
+  var height = document.getElementById('height-value');
+  var heightValue = (heightElem, height, btn) => {
+    return () => {
+      height.innerHTML = heightElem.value;
+      btn.style.height = heightElem.value + "px";
+    }
+  }
+  heightElem.addEventListener('input', heightValue(heightElem, height, btn));
+
+  var widthElem = document.getElementById('width');
+  var width = document.getElementById('width-value');
+  var widthValue = (widthElem, width, btn) => {
+    return () => {
+      width.innerHTML = widthElem.value;
+      btn.style.width = widthElem.value + "px";
+    }
+  }
+  widthElem.addEventListener('input', widthValue(widthElem, width, btn));
+
+  var radiusElem = document.getElementById('radius');
+  var radius = document.getElementById('radius-value');
+  var radiusValue = (radiusElem, radius, btn) => {
+    return () => {
+      radius.innerHTML = radiusElem.value;
+      btn.style.borderRadius = radiusElem.value + "px";
+    }
+  }
+  radiusElem.addEventListener('input', radiusValue(radiusElem, radius, btn));
+
+  var borderElem = document.getElementById('border');
+  var border = document.getElementById('border-value');
+  var borderValue = (borderElem, border, btn) => {
+    return () => {
+      border.innerHTML = borderElem.value;
+      btn.style.borderWidth = borderElem.value + "px";
+    }
+  }
+  borderElem.addEventListener('input', borderValue(borderElem, border, btn));
+
+  var fontSizeElem = document.getElementById('font-size');
+  var fontSize = document.getElementById('font-size-value');
+  var fontSizeValue = (fontSizeElem, fontSize, btn) => {
+    return () => {
+      fontSize.innerHTML = fontSizeElem.value;
+      btn.style.fontSize = fontSizeElem.value + "px";
+    }
+  }
+  fontSizeElem.addEventListener('input', fontSizeValue(fontSizeElem, fontSize, btn));
+</script>

@@ -9,116 +9,46 @@
 <div id="hide-wrapper"></div>
 <div class="products-main products-wrapper">
   <div class="products-container">
-    <div class="product-unit">
-      <div class="product" id="portfolio">
-        <div class="product-img">
-          <img src="/products-img/portfolio-img.png">
-        </div>
-        <div class="product-text">
-          <p class="product-title">Portfolio</p>
-          <p class="product-day">2019.03.24</p>
-        </div>
-      </div>
-    </div>
-    
-    <div class="product-unit">
-      <div class="product" id="mkidea">
-        <div class="product-img">
-          <img src="/products-img/mkidea-img.png">
-        </div>
-        <div class="product-text">
-          <p class="product-title">mkidea</p>
-          <p class="product-day">2018.10.31</p>
+    <% @products.each do |product| %>
+      <div class="product-unit">
+        <div class="product" id="<%= product[:id_name] %>">
+          <div class="product-img">
+            <img src="<%= product[:img_url] %>">
+          </div>
+          <div class="product-text">
+            <p class="product-title"><%= product[:name] %></p>
+            <p class="product-day"><%= product[:date] %></p>
+          </div>
         </div>
       </div>
-    </div>
-    
-    <div class="product-unit">
-      <div class="product" id="booklist">
-        <div class="product-img">
-          <img src="/products-img/BookList-img.png">
-        </div>
-        <div class="product-text">
-          <p class="product-title">BookList</p>
-          <p class="product-day">2018.10.04</p>
-        </div>
-      </div>
-    </div>
-    <div class="product-unit">
-      <div class="product" id="linestamp">
-        <div class="product-img">
-          <img src="/products-img/linestamp-img.png">
-        </div>
-        <div class="product-text">
-          <p class="product-title">LINE STAMP</p>
-          <p class="product-day">2016.12.19 ~ </p>
-        </div>
-      </div>
-    </div>
+    <% end %>
   </div>
 </div>
 
-<div class="hide-unit" id="hide-portfolio">
-  <div class="hibe-img">
-    <img src="/products-img/portfolio-img.png">
-  </div>
-  <div class="hide-explain">
-    <div class="close" id="close-portfolio">
-      <i class="fas fa-times"></i>
+<% @hide_products.each do |hide_product| %>
+  <div class="hide-unit" id="<%= hide_product[:hide_id] %>">
+    <div class="hibe-img">
+      <img src="<%= hide_product[:img_url] %>">
     </div>
-    <p class="product-title hide-title">Portfolio</p>
-    <p class="product-day hide-day">2019.03.24</p>
-    <p class="flame-work">framework: Rails</p>
-    <p class="comment">My portfolio site that you are looking at now! You can find out my profile. Feel free contact me if you are interested in me!</p>
-    <a class="visit-website">▷ You are already here!</a>
-  </div>
-</div>
-<div class="hide-unit" id="hide-mkidea">
-  <div class="hibe-img">
-    <img src="/products-img/mkidea-img.png">
-  </div>
-  <div class="hide-explain">
-    <div class="close" id="close-mkidea">
-      <i class="fas fa-times"></i>
+    <div class="hide-explain">
+      <div class="close" id="<%= hide_product[:close_id] %>">
+        <i class="fas fa-times"></i>
+      </div>
+      <p class="product-title hide-title"><%= hide_product[:name] %></p>
+      <p class="product-day hide-day"><%= hide_product[:date] %></p>
+      <p class="flame-work"><%= hide_product[:framework] %></p>
+      <p class="comment"><%= hide_product[:comment] %></p>
+      <a <% if hide_product[:url] != "" %>href="<%= hide_product[:url] %>" target="_blank"<% end %> class="visit-website">▷ You are already here!</a>
     </div>
-    <p class="product-title hide-title">mkidea</p>
-    <p class="product-day hide-day">2018.10.31</p>
-    <p class="flame-work">framework: Rails</p>
-    <p class="comment">My second product! You can make many ideas with this app! I'm going to make this site a platform to make ideas.</p>
-    <a href="https://mkidea.jp" target="_blank" class="visit-website">▷ Visit WebSite</a>
   </div>
-</div>
-<div class="hide-unit" id="hide-booklist">
-  <div class="hibe-img">
-    <img src="/products-img/BookList-img.png">
-  </div>
-  <div class="hide-explain">
-    <div class="close" id="close-booklist">
-      <i class="fas fa-times"></i>
-    </div>
-    <p class="product-title hide-title">BookList</p>
-    <p class="product-day hide-day">2018.10.04</p>
-    <p class="flame-work">framework: Rails</p>
-    <p class="comment">My first product! You can share several books in the form of List on your Twitter.</p>
-    <a href="https://book-list.jp" target="_blank" class="visit-website">▷ Visit WebSite</a>
-  </div>
-</div>
-<div class="hide-unit" id="hide-linestamp">
-  <div class="hibe-img">
-    <img src="/products-img/linestamp-img.png">
-  </div>
-  <div class="hide-explain">
-    <div class="close" id="close-linestamp">
-      <i class="fas fa-times"></i>
-    </div>
-    <p class="product-title hide-title">LINE STAMP</p>
-    <p class="product-day hide-day">2016.12.19 ~ </p>
-    <p class="comment">My original characters! You can buy them at LINE STORE!</p>
-    <a href="https://store.line.me/stickershop/author/119727" target="_blank" class="visit-website">▷ Visit WebSite</a>
-  </div>
-</div>
+<% end %>
 
 <script type="text/javascript">
+  $('#btng-product').click(function() {
+    $('#hide-btng').css('display', 'block');
+    $('#hide-btng').css('z-index', '20');
+    $('#hide-wrapper').css('display', 'block');
+  });
   $('#portfolio').click(function() {
     $('#hide-portfolio').css('display', 'block');
     $('#hide-portfolio').css('z-index', '20');
@@ -141,10 +71,15 @@
   });
 
   $('#hide-wrapper').click(function() {
+    $('#hide-btng').css('display', 'none');
     $('#hide-portfolio').css('display', 'none');
     $('#hide-mkidea').css('display', 'none');
     $('#hide-booklist').css('display', 'none');
     $('#hide-linestamp').css('display', 'none');
+    $('#hide-wrapper').css('display', 'none');
+  });
+  $('#close-btng').click(function() {
+    $('#hide-btng').css('display', 'none');
     $('#hide-wrapper').css('display', 'none');
   });
   $('#close-portfolio').click(function() {
