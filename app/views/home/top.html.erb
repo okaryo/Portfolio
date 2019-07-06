@@ -38,7 +38,11 @@
       <p class="product-day hide-day"><%= hide_product[:date] %></p>
       <p class="flame-work"><%= hide_product[:framework] %></p>
       <p class="comment"><%= hide_product[:comment] %></p>
-      <a <% if hide_product[:url] != "" %>href="<%= hide_product[:url] %>" target="_blank"<% end %> class="visit-website">▷ You are already here!</a>
+      <% if hide_product[:url] != "" %>
+        <a href="<%= hide_product[:url] %>" target="_blank" class="visit-website">▷ Visit WebSite</a>
+      <% else %>
+        <a class="visit-website">▷ You are already here!</a>
+      <% end %>
     </div>
   </div>
 <% end %>
