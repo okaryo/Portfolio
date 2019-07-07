@@ -5,41 +5,46 @@
 
   <div class="sliders">
     <div class="slider-container">
-      <%# <div class="slider-unit">
-        <p></p>
-        <input type="range" id="" min="0" max="120" step="1" value="20">
-        <span id="">20</span>
-      </div> %>
       <table>
         <tr>
           <td width="25%">height:</td>
           <td width="50%"><input type="range" id="height" min="0" max="120" step="1" value="20"></td>
-          <td width="15%"><span id="height-value">20</span></td>
+          <td width="25%"><span id="height-value">20</span></td>
         </tr>
         <tr>
           <td width="25%">width:</td>
           <td width="50%"><input type="range" id="width" min="0" max="240" step="1" value="40"></td>
-          <td width="15%"><span id="width-value">40</span></td>
+          <td width="25%"><span id="width-value">40</span></td>
         </tr>
         <tr>
           <td width="25%">border-radius:</td>
           <td width="50%"><input type="range" id="radius" min="0" max="60" step="1" value="2"></td>
-          <td width="15%"><span id="radius-value">2</span></td>
+          <td width="25%"><span id="radius-value">2</span></td>
         </tr>
         <tr>
           <td width="25%">border:</td>
           <td width="50%"><input type="range" id="border" min="0" max="20" step="1" value="1"></td>
-          <td width="15%"><span id="border-value">1</span></td>
+          <td width="25%"><span id="border-value">1</span></td>
         </tr>
         <tr>
           <td width="25%">font-size:</td>
           <td width="50%"><input type="range" id="font-size" min="0" max="100" step="1" value="11"></td>
-          <td width="15%"><span id="font-size-value">11</span></td>
+          <td width="25%"><span id="font-size-value">11</span></td>
+        </tr>
+        <tr>
+          <td width="25%">color:</td>
+          <td width="50%"><input type="range" id="color" min="0" max="16777215" step="1" value="0"></td>
+          <td width="25%"><span id="color-value">#000000</span></td>
+        </tr>
+        <tr>
+          <td width="25%">background-color:</td>
+          <td width="50%"><input type="range" id="background-color" min="0" max="16777215" step="1" value="0"></td>
+          <td width="25%"><span id="background-color-value">#000000</span></td>
         </tr>
         <%# <tr>
           <td width="25%"></td>
           <td width="50%"><input type="range" id="" min="0" max="240" step="1" value=""></td>
-          <td width="15%"><span id=""></span></td>
+          <td width="25%"><span id=""></span></td>
         </tr> %>
       </table>
       <p>※スマートフォンからの閲覧ではスライダーがうまく表示されません</p>
@@ -99,4 +104,42 @@
     }
   }
   fontSizeElem.addEventListener('input', fontSizeValue(fontSizeElem, fontSize, btn));
+
+  var colorElem = document.getElementById('color');
+  var color = document.getElementById('color-value');
+  var colorValue = (colorElem, color, btn) => {
+    return () => {
+      var tmp = colorElem.value;
+      var bluev = tmp % 256;
+      tmp = (tmp - bluev) / 256;
+      var greenv = tmp % 256;
+      tmp = (tmp - greenv) / 256;
+      var redv = tmp;
+      var redhex   = ('0' + redv.toString(16).toUpperCase()).substring(('0' + redv.toString(16).toUpperCase()).length - 2);
+      var greenhex = ('0' + greenv.toString(16).toUpperCase()).substring(('0' + greenv.toString(16).toUpperCase()).length - 2);
+      var bluehex  = ('0' + bluev.toString(16).toUpperCase()).substring(('0' + bluev.toString(16).toUpperCase()).length - 2);
+      color.innerHTML = "#" + redhex + greenhex + bluehex;
+      btn.style.color = "#" + redhex + greenhex + bluehex;
+    }
+  }
+  colorElem.addEventListener('input', colorValue(colorElem, color, btn));
+
+  var backgroundColorElem = document.getElementById('background-color');
+  var backgroundColor = document.getElementById('background-color-value');
+  var backgroundColorValue = (backgroundColorElem, backgroundColor, btn) => {
+    return () => {
+      var tmp = backgroundColorElem.value;
+      var bluev = tmp % 256;
+      tmp = (tmp - bluev) / 256;
+      var greenv = tmp % 256;
+      tmp = (tmp - greenv) / 256;
+      var redv = tmp;
+      var redhex   = ('0' + redv.toString(16).toUpperCase()).substring(('0' + redv.toString(16).toUpperCase()).length - 2);
+      var greenhex = ('0' + greenv.toString(16).toUpperCase()).substring(('0' + greenv.toString(16).toUpperCase()).length - 2);
+      var bluehex  = ('0' + bluev.toString(16).toUpperCase()).substring(('0' + bluev.toString(16).toUpperCase()).length - 2);
+      backgroundColor.innerHTML = "#" + redhex + greenhex + bluehex;
+      btn.style.backgroundColor = "#" + redhex + greenhex + bluehex;
+    }
+  }
+  backgroundColorElem.addEventListener('input', backgroundColorValue(backgroundColorElem, backgroundColor, btn));
 </script>
