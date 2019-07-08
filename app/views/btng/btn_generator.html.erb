@@ -1,4 +1,7 @@
 <div class="container">
+  <div class="lets">
+    <p>Let's make button!</p>
+  </div>
   <div class="btn-unit">
     <input class="btn" id="btn" type="submit" value="BTN">
   </div>
@@ -6,46 +9,13 @@
   <div class="sliders">
     <div class="slider-container">
       <table>
-        <tr>
-          <td width="25%">height:</td>
-          <td width="50%"><input type="range" id="height" min="0" max="120" step="1" value="20"></td>
-          <td width="25%"><span id="height-value">20</span></td>
-        </tr>
-        <tr>
-          <td width="25%">width:</td>
-          <td width="50%"><input type="range" id="width" min="0" max="240" step="1" value="40"></td>
-          <td width="25%"><span id="width-value">40</span></td>
-        </tr>
-        <tr>
-          <td width="25%">border-radius:</td>
-          <td width="50%"><input type="range" id="radius" min="0" max="60" step="1" value="2"></td>
-          <td width="25%"><span id="radius-value">2</span></td>
-        </tr>
-        <tr>
-          <td width="25%">border:</td>
-          <td width="50%"><input type="range" id="border" min="0" max="20" step="1" value="1"></td>
-          <td width="25%"><span id="border-value">1</span></td>
-        </tr>
-        <tr>
-          <td width="25%">font-size:</td>
-          <td width="50%"><input type="range" id="font-size" min="0" max="100" step="1" value="11"></td>
-          <td width="25%"><span id="font-size-value">11</span></td>
-        </tr>
-        <tr>
-          <td width="25%">color:</td>
-          <td width="50%"><input type="range" id="color" min="0" max="16777215" step="1" value="0"></td>
-          <td width="25%"><span id="color-value">#000000</span></td>
-        </tr>
-        <tr>
-          <td width="25%">background-color:</td>
-          <td width="50%"><input type="range" id="background-color" min="0" max="16777215" step="1" value="0"></td>
-          <td width="25%"><span id="background-color-value">#000000</span></td>
-        </tr>
-        <%# <tr>
-          <td width="25%"></td>
-          <td width="50%"><input type="range" id="" min="0" max="240" step="1" value=""></td>
-          <td width="25%"><span id=""></span></td>
-        </tr> %>
+        <% @csses.each do |css| %>
+          <tr>
+            <td width="35%"><%= css[:name] %></td>
+            <td width="45%"><input type="range" id="<%= css[:name_id] %>" min="<%= css[:min] %>" max="<%= css[:max] %>" step="<%= css[:step] %>" value="<%= css[:value] %>"></td>
+            <td width="20%"><span id="<%= css[:span_id] %>"><%= css[:span_value] %></span></td>
+          </tr>
+        <% end %>
       </table>
       <p>※スマートフォンからの閲覧ではスライダーがうまく表示されません</p>
       <p>※ボタンの色を変えたり、CSSのコードをコピペできるようにしたいです(いつかします)</p>
@@ -59,7 +29,7 @@
   var height = document.getElementById('height-value');
   var heightValue = (heightElem, height, btn) => {
     return () => {
-      height.innerHTML = heightElem.value;
+      height.innerHTML = heightElem.value + "px";
       btn.style.height = heightElem.value + "px";
     }
   }
@@ -69,7 +39,7 @@
   var width = document.getElementById('width-value');
   var widthValue = (widthElem, width, btn) => {
     return () => {
-      width.innerHTML = widthElem.value;
+      width.innerHTML = widthElem.value + "px";
       btn.style.width = widthElem.value + "px";
     }
   }
@@ -79,31 +49,82 @@
   var radius = document.getElementById('radius-value');
   var radiusValue = (radiusElem, radius, btn) => {
     return () => {
-      radius.innerHTML = radiusElem.value;
+      radius.innerHTML = radiusElem.value + "px";
       btn.style.borderRadius = radiusElem.value + "px";
     }
   }
   radiusElem.addEventListener('input', radiusValue(radiusElem, radius, btn));
 
-  var borderElem = document.getElementById('border');
-  var border = document.getElementById('border-value');
-  var borderValue = (borderElem, border, btn) => {
+  var borderWidthElem = document.getElementById('border-width');
+  var borderWidth = document.getElementById('border-width-value');
+  var borderWidthValue = (borderWidthElem, borderWidth, btn) => {
     return () => {
-      border.innerHTML = borderElem.value;
-      btn.style.borderWidth = borderElem.value + "px";
+      borderWidth.innerHTML = borderWidthElem.value + "px";
+      btn.style.borderWidth = borderWidthElem.value + "px";
     }
   }
-  borderElem.addEventListener('input', borderValue(borderElem, border, btn));
+  borderWidthElem.addEventListener('input', borderWidthValue(borderWidthElem, borderWidth, btn));
+
+  var borderStyleElem = document.getElementById('border-style');
+  var borderStyle = document.getElementById('border-style-value');
+  var borderStyleValue = (borderStyleElem, borderStyle, btn) => {
+    return () => {
+      var tmp = borderStyleElem.value;
+      var style;
+      if (tmp == 0) style = "none";
+      else if (tmp == 1) style = "hidden";
+      else if (tmp == 2) style = "solid";
+      else if (tmp == 3) style = "double";
+      else if (tmp == 4) style = "groove";
+      else if (tmp == 5) style = "ridge";
+      else if (tmp == 6) style = "inset";
+      else if (tmp == 7) style = "outset";
+      else if (tmp == 8) style = "dashed";
+      else if (tmp == 9) style = "dotted";
+      borderStyle.innerHTML = style;
+      btn.style.borderStyle = style;
+    }
+  }
+  borderStyleElem.addEventListener('input', borderStyleValue(borderStyleElem, borderStyle, btn));
+
+  var borderColorElem = document.getElementById('border-color');
+  var borderColor = document.getElementById('border-color-value');
+  var borderColorValue = (borderColorElem, borderColor, btn) => {
+    return () => {
+      var tmp = borderColorElem.value;
+      var bluev = tmp % 256;
+      tmp = (tmp - bluev) / 256;
+      var greenv = tmp % 256;
+      tmp = (tmp - greenv) / 256;
+      var redv = tmp;
+      var redhex   = ('0' + redv.toString(16).toUpperCase()).substring(('0' + redv.toString(16).toUpperCase()).length - 2);
+      var greenhex = ('0' + greenv.toString(16).toUpperCase()).substring(('0' + greenv.toString(16).toUpperCase()).length - 2);
+      var bluehex  = ('0' + bluev.toString(16).toUpperCase()).substring(('0' + bluev.toString(16).toUpperCase()).length - 2);
+      borderColor.innerHTML = "#" + redhex + greenhex + bluehex;
+      btn.style.borderColor = "#" + redhex + greenhex + bluehex;
+    }
+  }
+  borderColorElem.addEventListener('input', borderColorValue(borderColorElem, borderColor, btn));
 
   var fontSizeElem = document.getElementById('font-size');
   var fontSize = document.getElementById('font-size-value');
   var fontSizeValue = (fontSizeElem, fontSize, btn) => {
     return () => {
-      fontSize.innerHTML = fontSizeElem.value;
+      fontSize.innerHTML = fontSizeElem.value + "px";
       btn.style.fontSize = fontSizeElem.value + "px";
     }
   }
   fontSizeElem.addEventListener('input', fontSizeValue(fontSizeElem, fontSize, btn));
+
+  var fontWeightElem = document.getElementById('font-weight');
+  var fontWeight = document.getElementById('font-weight-value');
+  var fontWeightValue = (fontWeightElem, fontWeight, btn) => {
+    return () => {
+      fontWeight.innerHTML = fontWeightElem.value;
+      btn.style.fontWeight = fontWeightElem.value;
+    }
+  }
+  fontWeightElem.addEventListener('input', fontWeightValue(fontWeightElem, fontWeight, btn));
 
   var colorElem = document.getElementById('color');
   var color = document.getElementById('color-value');
@@ -142,4 +163,99 @@
     }
   }
   backgroundColorElem.addEventListener('input', backgroundColorValue(backgroundColorElem, backgroundColor, btn));
+
+  var boxShadowXElem = document.getElementById('box-shadow-x');
+  var boxShadowYElem = document.getElementById('box-shadow-y');
+  var boxShadowBlurElem = document.getElementById('box-shadow-blur');
+  var boxShadowSpreadElem = document.getElementById('box-shadow-spread');
+  var boxShadowColorElem = document.getElementById('box-shadow-color');
+  var boxShadowOpacityElem = document.getElementById('box-shadow-opacity');
+  var boxShadowX = document.getElementById('box-shadow-x-value');
+  var boxShadowY = document.getElementById('box-shadow-y-value');
+  var boxShadowBlur = document.getElementById('box-shadow-blur-value');
+  var boxShadowSpread = document.getElementById('box-shadow-spread-value');
+  var boxShadowColor = document.getElementById('box-shadow-color-value');
+  var boxShadowOpacity = document.getElementById('box-shadow-opacity-value');
+  var boxShadowXValue = (boxShadowXElem, boxShadowYElem, boxShadowBlurElem, boxShadowSpreadElem, boxShadowColorElem, boxShadowOpacityElem, boxShadowX, btn) => {
+    return () => {
+      var tmp = boxShadowColorElem.value;
+      var bluev = tmp % 256;
+      tmp = (tmp - bluev) / 256;
+      var greenv = tmp % 256;
+      tmp = (tmp - greenv) / 256;
+      var redv = tmp;
+      boxShadowX.innerHTML = boxShadowXElem.value + "px";
+      btn.style.boxShadow = boxShadowXElem.value + "px " + boxShadowYElem.value + "px " + boxShadowBlurElem.value + "px " + boxShadowSpreadElem.value + "px " + "rgba(" + redv + ", " + greenv + ", " + bluev + ", " + boxShadowOpacityElem.value + ")";
+    }
+  }
+  boxShadowXElem.addEventListener('input', boxShadowXValue(boxShadowXElem, boxShadowYElem, boxShadowBlurElem, boxShadowSpreadElem, boxShadowColorElem, boxShadowOpacityElem, boxShadowX, btn));
+  var boxShadowYValue = (boxShadowXElem, boxShadowYElem, boxShadowBlurElem, boxShadowSpreadElem, boxShadowColorElem, boxShadowOpacityElem, boxShadowY, btn) => {
+    return () => {
+      var tmp = boxShadowColorElem.value;
+      var bluev = tmp % 256;
+      tmp = (tmp - bluev) / 256;
+      var greenv = tmp % 256;
+      tmp = (tmp - greenv) / 256;
+      var redv = tmp;
+      boxShadowY.innerHTML = boxShadowYElem.value + "px";
+      btn.style.boxShadow = boxShadowXElem.value + "px " + boxShadowYElem.value + "px " + boxShadowBlurElem.value + "px " + boxShadowSpreadElem.value + "px " + "rgba(" + redv + ", " + greenv + ", " + bluev + ", " + boxShadowOpacityElem.value + ")";
+    }
+  }
+  boxShadowYElem.addEventListener('input', boxShadowYValue(boxShadowXElem, boxShadowYElem, boxShadowBlurElem, boxShadowSpreadElem, boxShadowColorElem, boxShadowOpacityElem, boxShadowY, btn));
+  var boxShadowBlurValue = (boxShadowXElem, boxShadowYElem, boxShadowBlurElem, boxShadowSpreadElem, boxShadowColorElem, boxShadowOpacityElem, boxShadowBlur, btn) => {
+    return () => {
+      var tmp = boxShadowColorElem.value;
+      var bluev = tmp % 256;
+      tmp = (tmp - bluev) / 256;
+      var greenv = tmp % 256;
+      tmp = (tmp - greenv) / 256;
+      var redv = tmp;
+      boxShadowBlur.innerHTML = boxShadowBlurElem.value + "px";
+      btn.style.boxShadow = boxShadowXElem.value + "px " + boxShadowYElem.value + "px " + boxShadowBlurElem.value + "px " + boxShadowSpreadElem.value + "px " + "rgba(" + redv + ", " + greenv + ", " + bluev + ", " + boxShadowOpacityElem.value + ")";
+    }
+  }
+  boxShadowBlurElem.addEventListener('input', boxShadowBlurValue(boxShadowXElem, boxShadowYElem, boxShadowBlurElem, boxShadowSpreadElem, boxShadowColorElem, boxShadowOpacityElem, boxShadowBlur, btn));
+  var boxShadowSpreadValue = (boxShadowXElem, boxShadowYElem, boxShadowBlurElem, boxShadowSpreadElem, boxShadowColorElem, boxShadowOpacityElem, boxShadowSpread, btn) => {
+    return () => {
+      var tmp = boxShadowColorElem.value;
+      var bluev = tmp % 256;
+      tmp = (tmp - bluev) / 256;
+      var greenv = tmp % 256;
+      tmp = (tmp - greenv) / 256;
+      var redv = tmp;
+      boxShadowSpread.innerHTML = boxShadowSpreadElem.value + "px";
+      btn.style.boxShadow = boxShadowXElem.value + "px " + boxShadowYElem.value + "px " + boxShadowBlurElem.value + "px " + boxShadowSpreadElem.value + "px " + "rgba(" + redv + ", " + greenv + ", " + bluev + ", " + boxShadowOpacityElem.value + ")";
+    }
+  }
+  boxShadowSpreadElem.addEventListener('input', boxShadowSpreadValue(boxShadowXElem, boxShadowYElem, boxShadowBlurElem, boxShadowSpreadElem, boxShadowColorElem, boxShadowOpacityElem, boxShadowSpread, btn));
+  var boxShadowColorValue = (boxShadowXElem, boxShadowYElem, boxShadowBlurElem, boxShadowSpreadElem, boxShadowColorElem, boxShadowOpacityElem, boxShadowColor, btn) => {
+    return () => {
+      var tmp = boxShadowColorElem.value;
+      var bluev = tmp % 256;
+      tmp = (tmp - bluev) / 256;
+      var greenv = tmp % 256;
+      tmp = (tmp - greenv) / 256;
+      var redv = tmp;
+      var redhex   = ('0' + redv.toString(16).toUpperCase()).substring(('0' + redv.toString(16).toUpperCase()).length - 2);
+      var greenhex = ('0' + greenv.toString(16).toUpperCase()).substring(('0' + greenv.toString(16).toUpperCase()).length - 2);
+      var bluehex  = ('0' + bluev.toString(16).toUpperCase()).substring(('0' + bluev.toString(16).toUpperCase()).length - 2);
+      boxShadowColor.innerHTML = "#" + redhex + greenhex + bluehex;
+      btn.style.boxShadow = boxShadowXElem.value + "px " + boxShadowYElem.value + "px " + boxShadowBlurElem.value + "px " + boxShadowSpreadElem.value + "px " + "rgba(" + redv + ", " + greenv + ", " + bluev + ", " + boxShadowOpacityElem.value + ")";
+    }
+  }
+  boxShadowColorElem.addEventListener('input', boxShadowColorValue(boxShadowXElem, boxShadowYElem, boxShadowBlurElem, boxShadowSpreadElem, boxShadowColorElem, boxShadowOpacityElem, boxShadowColor, btn));
+  var boxShadowOpacityValue = (boxShadowXElem, boxShadowYElem, boxShadowBlurElem, boxShadowSpreadElem, boxShadowColorElem, boxShadowOpacityElem, boxShadowOpacity, btn) => {
+    return () => {
+      var tmp = boxShadowColorElem.value;
+      var bluev = tmp % 256;
+      tmp = (tmp - bluev) / 256;
+      var greenv = tmp % 256;
+      tmp = (tmp - greenv) / 256;
+      var redv = tmp;
+      boxShadowOpacity.innerHTML = boxShadowOpacityElem.value;
+      btn.style.boxShadow = boxShadowXElem.value + "px " + boxShadowYElem.value + "px " + boxShadowBlurElem.value + "px " + boxShadowSpreadElem.value + "px " + "rgba(" + redv + ", " + greenv + ", " + bluev + ", " + boxShadowOpacityElem.value + ")";
+    }
+  }
+  boxShadowOpacityElem.addEventListener('input', boxShadowOpacityValue(boxShadowXElem, boxShadowYElem, boxShadowBlurElem, boxShadowSpreadElem, boxShadowColorElem, boxShadowOpacityElem, boxShadowOpacity, btn));
 </script>
+
