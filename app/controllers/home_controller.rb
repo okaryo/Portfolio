@@ -11,7 +11,7 @@ class HomeController < ApplicationController
 
     @hide_products = [
       #{name: , img_url: , date: , url: , hide_id: , close_id: , framework: , comment: }
-      {name: "BTNG", img_url: "/products-img/btng-img3.png", date: "2019.07.06", url: "http://okaryo-tr.com/btn_generator", hide_id: "hide-btng", close_id:"close-btng" , framework: "", comment: "Button Generator, \"BTNG\" for short. You can try making a button at will!"},
+      {name: "BTNG", img_url: "/products-img/btng-img3.png", date: "2019.07.06", url: "http://okaryo-tr.com/btng", hide_id: "hide-btng", close_id:"close-btng" , framework: "", comment: "Button Generator, \"BTNG\" for short. You can try making a button at will!"},
       {name: "Portfolio", img_url: "/products-img/portfolio-img.png", date: "2019.03.24", url: "", hide_id: "hide-portfolio", close_id: "close-portfolio", framework: "framework: Rails", comment: "My portfolio site that you are looking at now! You can find out my profile. Feel free contact me if you are interested in me!"},
       {name: "mkidea", img_url: "/products-img/mkidea-img.png", date: "2018.10.31", url: "https://mkidea.jp", hide_id: "hide-mkidea", close_id: "close-mkidea", framework: "framework: Rails", comment: "My second product! You can make many ideas with this app! I'm going to make this site a platform to make ideas."},
       {name: "BookList", img_url: "/products-img/BookList-img.png", date: "2018.10.04", url: "https://book-list.jp", hide_id: "hide-booklist", close_id: "close-booklist", framework: "framework: Rails", comment: "My first product! You can share several books in the form of List on your Twitter."},

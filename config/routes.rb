@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get "btn_generator" => "btng#btn_generator"
+  get "btng" => "btng#btn_generator"
 
   get "contact" => "home#contact"
   
