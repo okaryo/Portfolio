@@ -2,9 +2,7 @@ class BtngController < ApplicationController
   def btn_generator
     @page_title = "BTNG"
     @header_name = "BTNG"
-  end
 
-  def btn_generator
     @csses = [
       #{name: , name_id: , min: , max: , step: , value: , span_id: , span_value: }
       {name: "height:", name_id: "height", min: "0", max: "120", step: "1", value: "20", span_id: "height-value", span_value: "20px"},
