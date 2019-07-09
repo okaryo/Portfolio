@@ -1,6 +1,6 @@
 class BtngController < ApplicationController
   def btn_generator
-    @page_title = "BTNG"
+    @page_title = "BTNG - ボタンを簡単に試作できる"
     @header_name = "BTNG"
 
     @csses = [
