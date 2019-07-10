@@ -20,7 +20,7 @@ class BtngController < ApplicationController
       {name: "box-shadow-blur:", name_id: "box-shadow-blur", min: "0", max: "100", step: "1", value: "0", span_id: "box-shadow-blur-value", span_value: "0px"},
       {name: "box-shadow-spread:", name_id: "box-shadow-spread", min: "-100", max: "100", step: "1", value: "0", span_id: "box-shadow-spread-value", span_value: "0px"},
       {name: "box-shadow-color:", name_id: "box-shadow-color", min: "0", max: "16777215", step: "1", value: "0", span_id: "box-shadow-color-value", span_value: "#000000"},
-      {name: "box-shadow-opacity:", name_id: "box-shadow-opacity", min: "0", max: "1", step: "0.1", value: "0", span_id: "box-shadow-opacity-value", span_value: "0"}
+      {name: "box-shadow-opacity:", name_id: "box-shadow-opacity", min: "0", max: "1", step: "0.01", value: "0.75", span_id: "box-shadow-opacity-value", span_value: "0.75"}
     ]
   end
 end

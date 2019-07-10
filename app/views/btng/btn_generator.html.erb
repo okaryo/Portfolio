@@ -11,9 +11,9 @@
       <table>
         <% @csses.each do |css| %>
           <tr>
-            <td width="35%"><%= css[:name] %></td>
-            <td width="45%"><input type="range" id="<%= css[:name_id] %>" min="<%= css[:min] %>" max="<%= css[:max] %>" step="<%= css[:step] %>" value="<%= css[:value] %>"></td>
-            <td width="20%"><span id="<%= css[:span_id] %>"><%= css[:span_value] %></span></td>
+            <td width="30%"><%= css[:name] %></td>
+            <td width="55%"><input type="range" id="<%= css[:name_id] %>" class="btng-slider" min="<%= css[:min] %>" max="<%= css[:max] %>" step="<%= css[:step] %>" value="<%= css[:value] %>"></td>
+            <td width="15%"><span id="<%= css[:span_id] %>"><%= css[:span_value] %></span></td>
           </tr>
         <% end %>
       </table>
@@ -24,7 +24,7 @@
       <p>・CSSのコードが作れるようにする</p>
       <p>・表示されたコードがクリップボードへコピーできるようにする</p>
       <p>・みんなが作ったボタンを一覧できるようなページを作る</p>
-      <div ><a class="btng-twi" href="https://twitter.com/okaryo_tr" target="_blank">Twitter: @okaryo_tr</a></div>
+      <div ><span>ご要望等は</span><a class="btng-twi" href="https://twitter.com/okaryo_tr" target="_blank">Twitter: @okaryo_tr</a><span>までお気軽にどうぞ</span></div>
     </div>
   </div>
 </div>
