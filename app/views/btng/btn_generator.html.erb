@@ -17,6 +17,10 @@
           </tr>
         <% end %>
       </table>
+      <div class="reset-and-create">
+        <input class="btn-reset" id="btn-reset" type="reset" value="値をリセット">
+        <input class="btn-create-code" id="btn-create-code" type="submit" value="CSSコードを作成">
+      </div>
       <p>【いつかつけたい機能】</p>
       <p>・:hoverや:activeの要素もいじれるようにする</p>
       <p>・ボタンのパラメータをリセットできるようにする</p>
@@ -263,5 +267,55 @@
     }
   }
   boxShadowOpacityElem.addEventListener('input', boxShadowOpacityValue(boxShadowXElem, boxShadowYElem, boxShadowBlurElem, boxShadowSpreadElem, boxShadowColorElem, boxShadowOpacityElem, boxShadowOpacity, btn));
+
+  var resetElem = document.getElementById('btn-reset');
+  var resetValue = (resetElem, btn) => {
+    return () => {
+      height.innerHTML = "20px";
+      btn.style.height = "20px";
+      heightElem.value = 20;
+      width.innerHTML = "40px";
+      btn.style.width = "40px";
+      widthElem.value = 40;
+      radius.innerHTML = "2px";
+      btn.style.borderRadius = "2px";
+      radiusElem.value = 2;
+      borderWidth.innerHTML = "1px";
+      btn.style.borderWidth = "1px";
+      borderWidthElem.value = 1;
+      borderStyle.innerHTML = "solid";
+      btn.style.borderStyle = "solid";
+      borderStyleElem.value = 2;
+      borderColor.innerHTML = "#BABABA";
+      btn.style.borderColor = "#BABABA";
+      borderColorElem.value = 12237498;
+      fontSize.innerHTML = "11px";
+      btn.style.fontSize = "11px";
+      fontSizeElem.value = 11;
+      fontWeight.innerHTML = "400";
+      btn.style.fontWeight = "400";
+      fontWeightElem.value = 400;
+      color.innerHTML = "#000000";
+      btn.style.color = "#000000";
+      colorElem.value = 0;
+      backgroundColor.innerHTML = "#FFFFFF";
+      btn.style.backgroundColor = "#FFFFFF";
+      backgroundColorElem.value = 16777215;
+      boxShadowX.innerHTML = "0px";
+      boxShadowXElem.value = 0;
+      boxShadowY.innerHTML = "0px";
+      boxShadowYElem.value = 0;
+      boxShadowBlur.innerHTML = "0px";
+      boxShadowBlurElem.value = 0;
+      boxShadowSpread.innerHTML = "0px";
+      boxShadowSpreadElem.value = 0;
+      boxShadowColor.innerHTML = "#000000";
+      boxShadowColorElem.value = 0;
+      boxShadowOpacity.innerHTML = "0.75";
+      boxShadowOpacityElem.value = 0.75;
+      btn.style.boxShadow = "0px 0px 0px 0px rgba(0, 0, 0, 0.75)";
+    }
+  }
+  resetElem.addEventListener('click', resetValue(resetElem, btn));
 </script>
 

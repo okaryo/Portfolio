@@ -1,6 +1,6 @@
 class BtngController < ApplicationController
   def btn_generator
-    @page_title = "BTNG - ボタンを簡単に試作できる"
+    @page_title = "BTNG - CSSボタンジェネレーター"
     @header_name = "BTNG"
 
     @csses = [
@@ -10,11 +10,11 @@ class BtngController < ApplicationController
       {name: "border-radius:", name_id: "radius", min: "0", max: "60", step: "1", value: "2", span_id: "radius-value", span_value: "2px"},
       {name: "border-width:", name_id: "border-width", min: "0", max: "20", step: "1", value: "1", span_id: "border-width-value", span_value: "1px"},
       {name: "border-style:", name_id: "border-style", min: "0", max: "9", step: "1", value: "2", span_id: "border-style-value", span_value: "solid"},
-      {name: "border-color:", name_id: "border-color", min: "0", max: "16777215", step: "1", value: "0", span_id: "border-color-value", span_value: "#000000"},
+      {name: "border-color:", name_id: "border-color", min: "0", max: "16777215", step: "1", value: "12237498", span_id: "border-color-value", span_value: "#BABABA"},
       {name: "font-size:", name_id: "font-size", min: "0", max: "100", step: "1", value: "11", span_id: "font-size-value", span_value: "11px"},
       {name: "font-weight:", name_id: "font-weight", min: "100", max: "900", step: "100", value: "400", span_id: "font-weight-value", span_value: "400"},
       {name: "color:", name_id: "color", min: "0", max: "16777215", step: "1", value: "0", span_id: "color-value", span_value: "#000000"},
-      {name: "background-color:", name_id: "background-color", min: "0", max: "16777215", step: "1", value: "0", span_id: "background-color-value", span_value: "#000000"},
+      {name: "background-color:", name_id: "background-color", min: "0", max: "16777215", step: "1", value: "16777215", span_id: "background-color-value", span_value: "#FFFFFF"},
       {name: "box-shadow-x:", name_id: "box-shadow-x", min: "-30", max: "30", step: "1", value: "0", span_id: "box-shadow-x-value", span_value: "0px"},
       {name: "box-shadow-y:", name_id: "box-shadow-y", min: "-30", max: "30", step: "1", value: "0", span_id: "box-shadow-y-value", span_value: "0px"},
       {name: "box-shadow-blur:", name_id: "box-shadow-blur", min: "0", max: "100", step: "1", value: "0", span_id: "box-shadow-blur-value", span_value: "0px"},
