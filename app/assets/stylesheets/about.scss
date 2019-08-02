@@ -69,11 +69,13 @@ ul li {
 }
 
 /*photo and name ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+.photo {
+  margin-right: 15px;
+  border: solid 1px #d9d9d9;
+}
 .photo img {
   height: 100px;
   width: 116px;
-  border: solid 1px #d9d9d9;
-  margin-right: 15px;
 }
 .photo, .name {
   display: inline-block;
