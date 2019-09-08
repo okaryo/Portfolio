@@ -46,7 +46,7 @@ form input[type="submit"] {
 body {
   margin: 0;
   height: auto;
-  min-height: 1vh;
+  min-height: 100vh;
 }
 
 .main {
@@ -68,6 +68,12 @@ body {
   margin: 60px auto;
   padding-left: 15px;
   padding-right: 15px;
+  clear: both;
+}
+
+.clearfix::after {
+  content: '';
+  display: block;
   clear: both;
 }
 
@@ -139,17 +145,19 @@ header {
 
 /* products ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 .products-main {
-  position: absolute;
-  top: 164px;
+  // position: absolute;
+  // top: 70px;
   width: 100%;
   height: auto;
   min-height: 100%;
   z-index: 2;
 }
 .products-wrapper {
-  padding-bottom: 80px;
+  padding-bottom: 64px;
   padding-left: 5%;
   padding-right: 5%;
+  min-height: 100vh;
+  // position: relative;
   text-align: center;
 }
 .products-container {
@@ -161,7 +169,7 @@ header {
 .product-unit {
   width: 25%;
   float: left;
-  margin-bottom: 50px;
+  margin: 60px auto 0;
 }
 .product {
   border: solid 1px #d9d9d9;
@@ -253,6 +261,7 @@ header {
   margin-bottom: 8px;
 }
 #hide-wrapper {
+  min-height: 500px;
   display: none;
   background-color: #4D4D4D;
   z-index: 3;
@@ -280,16 +289,15 @@ header {
 }
 
 /* footer ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-footer {
-  height: 64px;
-  background-color: #3EBB44;
-  text-align: center;
+.footer {
+  min-height: 120px;
+  color: rgb(227, 250, 229);
+  background-color: rgb(72, 93, 72);
   width: 100%;
-  
-  position: absolute;
-  bottom: 0;
+  padding: 20px 0;
 }
-footer p {
-  margin: auto;
-  color: #FFFFFF;
+.copyright {
+  margin-top: 30px;
+  text-align: center;
+  letter-spacing: 1px;
 }

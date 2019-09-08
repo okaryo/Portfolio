@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container clearfix">
   <div class="lets">
     <p>Let's make button!</p>
   </div>
@@ -6,11 +6,11 @@
     <input class="btn" id="btn" type="submit" value="BTN">
   </div>
 
-  <div class="sliders">
+  <div class="sliders clearfix">
     <div class="slider-container">
       <table>
         <% @csses.each do |css| %>
-          <tr>
+          <tr class="tr-slider">
             <td width="30%"><%= css[:name] %></td>
             <td width="55%"><input type="range" id="<%= css[:name_id] %>" class="btng-slider" min="<%= css[:min] %>" max="<%= css[:max] %>" step="<%= css[:step] %>" value="<%= css[:value] %>"></td>
             <td width="15%"><span id="<%= css[:span_id] %>"><%= css[:span_value] %></span></td>

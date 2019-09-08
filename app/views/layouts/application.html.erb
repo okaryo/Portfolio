@@ -21,14 +21,11 @@
   </head>
 
   <body>
-    <header>
-      <div class="main-header">
-        <div class="header-icon"></div>
-        <div class="header-name"><%= link_to(header_name, "/") %></div>
-      </div>
-    </header>
+    <%= render 'layouts/header' %>
     
     <%= yield %>
+    
+    <%= render 'layouts/footer' %>
   </body>
   
 </html>

@@ -1,4 +1,4 @@
-<div class="tabs">
+<div class="tabs clearfix">
   <div class="tab_item tab_products1" id="tab_products"><%= link_to("PRODUCTS", "/") %></div>
 
   <div class="tab_item tab_about1" id="tab_about"><%= link_to("ABOUT ME", "/about") %></div>
@@ -7,8 +7,8 @@
 </div>
 
 <div id="hide-wrapper"></div>
-<div class="products-main products-wrapper">
-  <div class="products-container">
+<div class="products-main products-wrapper clearfix">
+  <div class="products-container clearfix">
     <% @products.each do |product| %>
       <div class="product-unit">
         <div class="product" id="<%= product[:id_name] %>">
