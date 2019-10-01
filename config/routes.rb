@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  get "btng" => "btng#btn_generator"
+  root 'products#index'
 
-  get "contact" => "home#contact"
-  
-  get "about" => "home#about"
-  
-  get "/" => "home#top"
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # portfolio
+  resources :products, only: [:index]
+  resource  :profile,  only: [:show]
+  resource  :contact,  only: [:show]
+
+  get "btng" => "btng#btn_generator"
 end

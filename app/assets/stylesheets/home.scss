@@ -296,6 +296,14 @@ header {
   width: 100%;
   padding: 20px 0;
 }
+.footer-menus {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+.footer-menu {
+  flex-basis: 20%;
+}
 .copyright {
   margin-top: 30px;
   text-align: center;

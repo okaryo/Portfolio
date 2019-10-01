@@ -1,0 +1,105 @@
+<div class="tabs clearfix">
+  <div class="tab_item tab_products1" id="tab_products"><%= link_to("PRODUCTS", "#") %></div>
+
+  <div class="tab_item tab_about1" id="tab_about"><%= link_to("ABOUT ME", profile_path) %></div>
+
+  <div class="tab_item tab_contact1" id="tab_contact"><%= link_to("CONTACT", contact_path) %></div>
+</div>
+
+<div id="hide-wrapper"></div>
+<div class="products-main products-wrapper clearfix">
+  <div class="products-container clearfix">
+    <% @products.each do |product| %>
+      <div class="product-unit">
+        <div class="product" id="<%= product[:id_name] %>">
+          <div class="product-img">
+            <img src="<%= product[:img_url] %>">
+          </div>
+          <div class="product-text">
+            <p class="product-title"><%= product[:name] %></p>
+            <p class="product-day"><%= product[:date] %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<% @hide_products.each do |hide_product| %>
+  <div class="hide-unit" id="<%= hide_product[:hide_id] %>">
+    <div class="hibe-img">
+      <img src="<%= hide_product[:img_url] %>">
+    </div>
+    <div class="hide-explain">
+      <div class="close" id="<%= hide_product[:close_id] %>">
+        <i class="fas fa-times"></i>
+      </div>
+      <p class="product-title hide-title"><%= hide_product[:name] %></p>
+      <p class="product-day hide-day"><%= hide_product[:date] %></p>
+      <p class="flame-work"><%= hide_product[:framework] %></p>
+      <p class="comment"><%= hide_product[:comment] %></p>
+      <% if hide_product[:url] != "" %>
+        <a href="<%= hide_product[:url] %>" target="_blank" class="visit-website">▷ Visit WebSite</a>
+      <% else %>
+        <a class="visit-website">▷ You are already here!</a>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+  $('#btng-product').click(function() {
+    $('#hide-btng').css('display', 'block');
+    $('#hide-btng').css('z-index', '20');
+    $('#hide-wrapper').css('display', 'block');
+  });
+  $('#portfolio').click(function() {
+    $('#hide-portfolio').css('display', 'block');
+    $('#hide-portfolio').css('z-index', '20');
+    $('#hide-wrapper').css('display', 'block');
+  });
+  $('#mkidea').click(function() {
+    $('#hide-mkidea').css('display', 'block');
+    $('#hide-mkidea').css('z-index', '20');
+    $('#hide-wrapper').css('display', 'block');
+  });
+  $('#booklist').click(function() {
+    $('#hide-booklist').css('display', 'block');
+    $('#hide-booklist').css('z-index', '20');
+    $('#hide-wrapper').css('display', 'block');
+  });
+  $('#linestamp').click(function() {
+    $('#hide-linestamp').css('display', 'block');
+    $('#hide-linestamp').css('z-index', '20');
+    $('#hide-wrapper').css('display', 'block');
+  });
+
+  $('#hide-wrapper').click(function() {
+    $('#hide-btng').css('display', 'none');
+    $('#hide-portfolio').css('display', 'none');
+    $('#hide-mkidea').css('display', 'none');
+    $('#hide-booklist').css('display', 'none');
+    $('#hide-linestamp').css('display', 'none');
+    $('#hide-wrapper').css('display', 'none');
+  });
+  $('#close-btng').click(function() {
+    $('#hide-btng').css('display', 'none');
+    $('#hide-wrapper').css('display', 'none');
+  });
+  $('#close-portfolio').click(function() {
+    $('#hide-portfolio').css('display', 'none');
+    $('#hide-wrapper').css('display', 'none');
+  });
+  $('#close-mkidea').click(function() {
+    $('#hide-mkidea').css('display', 'none');
+    $('#hide-wrapper').css('display', 'none');
+  });
+  $('#close-booklist').click(function() {
+    $('#hide-booklist').css('display', 'none');
+    $('#hide-wrapper').css('display', 'none');
+  });
+  $('#close-linestamp').click(function() {
+    $('#hide-linestamp').css('display', 'none');
+    $('#hide-wrapper').css('display', 'none');
+  });
+</script>
